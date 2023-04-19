@@ -1,7 +1,9 @@
-import cv2
+import easyocr
 import tkinter as tk
-from PIL import Image
-from PIL import ImageTk
+import numpy as np
+import cv2
+import random
+from PIL import Image, ImageTk, ImageDraw
 
 result = []
 

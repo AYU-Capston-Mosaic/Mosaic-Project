@@ -1,5 +1,8 @@
 import tkinter as tk
 import cv2
+import easyocr
+import numpy as np
+import random
 from PIL import Image, ImageTk, ImageDraw
 
 result = []
