@@ -1,0 +1,4 @@
+*/.venv/
+*/assets/
+*/img/
+*.DS_Store
