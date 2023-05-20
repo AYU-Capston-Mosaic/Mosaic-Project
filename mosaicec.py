@@ -59,21 +59,21 @@ class Mosaic(ttk.Frame):
         )
         logo_text.pack(side=LEFT, padx=10)
 
-        select_btn = ttk.Button(
-            master=main_frame,
-            image='file',
-            bootstyle=INFO,
-            command=self.select_file,
-        )
-        select_btn.pack(anchor='center', fill=BOTH, expand=True, ipadx=20, ipady=20)
-
         mosaic_btn = ttk.Button(
-            master=main_frame,
+            master=hdr_frame,
             image='mosaic',
             bootstyle=INFO,
             command=self.mosaic_image
         )
-        mosaic_btn.pack(anchor='center', fill=BOTH, expand=True, ipadx=20, ipady=20)
+        mosaic_btn.pack(side=RIGHT, fill=BOTH, ipadx=3, ipady=5)
+
+        select_btn = ttk.Button(
+            master=hdr_frame,
+            image='file',
+            bootstyle=INFO,
+            command=self.select_file,
+        )
+        select_btn.pack(side=RIGHT, fill=BOTH, ipadx=3, ipady=5)
 
         # # results frame
         # results_frame = ttk.Frame(main_frame)
@@ -195,6 +195,7 @@ class Mosaic(ttk.Frame):
         print("BBOX MAX")
         print(bbox_max)
 
+
         for i in bbox_max:
             flag = False
             for j in self.bbox:
@@ -241,6 +242,7 @@ class Mosaic(ttk.Frame):
         self.canvas.bind("<Button-1>", self.on_click)
 
     def capture(self):
+        # 스크린샷 저장 위치 선택
         filename = filedialog.asksaveasfilename(defaultextension='.png', filetypes=[("PNG", "*.png"), ("JPEG", "*.jpg"), ("BMP", "*.bmp")])
         
         self.original_image.save(filename)
@@ -272,6 +274,8 @@ class Mosaic(ttk.Frame):
         self.image_tk = ImageTk.PhotoImage(self.image)
         self.canvas.create_image(0, 0, anchor="nw", image=self.image_tk)
 
+        
+
 
 if __name__ == '__main__':
 
@@ -287,21 +291,3 @@ if __name__ == '__main__':
     root.geometry(f"{window_width}x{window_height}")
     root.mainloop()
 
-
-
-
-    # def _on_mousewheel(self, event):
-    #     self.canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-
-    # def __init__(self, master, **kwargs):
-    #     super().__init__(master, **kwargs)
-    #     self.pack(fill=BOTH, expand=YES)
-
-    #     scrollbar = tk.Scrollbar(self)
-    #     scrollbar.pack(side='right', fill='y')
-
-    #     self.canvas = tk.Canvas(self, yscrollcommand=scrollbar.set)
-    #     self.canvas.pack(fill='both', expand=True)
-
-    #     scrollbar.config(command=self.canvas.yview)
-    #     self.canvas.bind_all("<MouseWheel>", self._on_mousewheel)
