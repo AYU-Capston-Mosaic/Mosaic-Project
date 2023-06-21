@@ -15,12 +15,21 @@
    - 파이썬 가상환경 구동 명령어
 
 ```bash
->> python3 -m venv test
->> cd test
+>> python3 -m venv .venv
+>> cd .venv
 >> source bin/activate
 ```
 
-<br>
+
+
+- 파이썬 특정 버전으로 가상환경 실행하기 (e.g.)
+
+```bash
+>> /opt/homebrew/bin/python3.9 -m venv .venv
+# {원하는 버전의 파이썬이 설치된 경로} -m {가상환경 이름} {가상환경 디렉토리명}
+```
+
+
 
 2. 가상 환경 디렉토리내로 모든 소스파일 복사
 
@@ -30,7 +39,7 @@
 
 - 또는 파일 편집기 내에서 파일을 복사해오는 것도 가능합니다!
 
-<br>
+
 
 3. 쉘 스크립트 파일 구동
 
