@@ -7,6 +7,8 @@
 <br>
 <br>
 
+---
+
 ## Project Version
 
 - python 3.9.16
